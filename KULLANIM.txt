@@ -1,0 +1,55 @@
+VERİMLİLİK MERKEZİ — KULLANIM KILAVUZU
+======================================
+
+1) KURULUM (yalnızca bir kez)
+-----------------------------
+- Zip'i C:\ altına çıkar. Sonuç şöyle olmalı:  C:\VerimlilikMerkezi\main.py
+  (Kullanıcı klasörüne / Masaüstüne değil, doğrudan C:\ altına koy; Türkçe
+  karakterli kullanıcı adı yüzünden yaşadığın sorunları böylece önlersin.)
+- "Kurulum.bat" dosyasına çift tıkla. customtkinter ve matplotlib kurulur.
+
+2) ÇALIŞTIRMA
+-------------
+- "Baslat.bat" dosyasına çift tıkla.
+- Ya da komut satırından:
+      cd C:\VerimlilikMerkezi
+      python main.py
+- Verilerin  C:\VerimlilikMerkezi\veriler\verimlilik.db  dosyasında tutulur.
+  Yedeklemek için bu dosyayı kopyalaman yeterli.
+
+3) GÖREVLER (sol panel)
+-----------------------
+- Üstteki kutuya görev adını yaz. İstersen yanına son tarih gir:
+  15.10.2026  /  15/10/2026  /  bugün  /  yarın  → Enter veya "+ Ekle".
+- "+ Alt görev": o göreve alt görev ekler.
+- "Tarih": son tarihi ekler/değiştirir (boş bırakırsan kaldırır).
+- "Sil": görevi siler (alt görevleri varsa önce onay sorar).
+- Görevin ADINA veya kutucuğuna tıkla → tamamlandı: üzeri çizilir ve en alta
+  "TAMAMLANANLAR" bölümüne iner. Tekrar tıklarsan geri alınır.
+- Ana görevi tamamlarsan tüm alt görevleri de tamamlanır.
+- Son tarihi geçmiş ya da yaklaşmış görevler kırmızı ve başında "!" ile görünür.
+
+4) ZAMANLAYICI (sağ panel)
+--------------------------
+- Önce bir KATEGORİ seç (ör. Olasılık). Yeni kategori: alttaki kutuya yaz → Ekle.
+  Kategoriyi silmek kırmızı "Sil" ile; o kategorinin süre kayıtları da silinir.
+- Mod seç: "Süreölçer" (ileri sayar) veya "Pomodoro" (geri sayar).
+- Büyük düğme:  Başlat → Duraklat → Devam Et → Duraklat ...
+- "Bitir ve Kaydet": geçen süreyi seçili kategoriye bugünün tarihiyle kaydeder.
+- Pomodoro'da çalışma süresi dolunca süre otomatik kaydedilir, melodi çalar ve
+  mola başlar. Mola bitince yine melodi çalar. Molayı "Molayı Atla" ile geçebilirsin.
+- Oturum sürerken uygulamayı kapatırsan geçen çalışma süresi yine kaydedilir.
+
+5) İSTATİSTİKLER ve AYARLAR (sağ üst düğmeler)
+----------------------------------------------
+- İstatistikler: Günlük / Haftalık / Aylık. ◀ ▶ ile önceki-sonraki döneme geç,
+  "Bugün" ile geri dön.
+- Ayarlar: Pomodoro çalışma/mola süresi (varsayılan 50/10 dk), son tarih uyarısı
+  (kaç gün kala kırmızı olsun), melodi aç/kapa ("Dene" ile dinle),
+  görünüm (Koyu/Açık/Sistem). "Kaydet" deyince kalıcı olarak saklanır.
+
+SORUN ÇIKARSA
+-------------
+- "No module named customtkinter" → Kurulum.bat'ı tekrar çalıştır.
+- Baslat.bat açılıp hemen kapanıyorsa pencerede yazan hatayı oku; çoğunlukla
+  kurulum yapılmamıştır.

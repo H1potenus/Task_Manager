@@ -1,0 +1,7 @@
+# Kişisel veriler (görevler, süre kayıtları) paylaşılmaz
+veriler/
+*.db
+
+__pycache__/
+*.pyc
+.venv/
