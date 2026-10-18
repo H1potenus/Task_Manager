@@ -7,7 +7,9 @@ Bu modül bu sorunları düzeltir.
 from __future__ import annotations
 
 import calendar
+import sys
 from datetime import date, timedelta
+from pathlib import Path
 
 TR_MONTHS = [
     "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
@@ -129,3 +131,11 @@ def add_months(d: date, delta: int) -> date:
     year, month = divmod(month_index, 12)
     day = min(d.day, calendar.monthrange(year, month + 1)[1])
     return date(year, month + 1, day)
+
+
+# ------------------------------------------------------------------ kaynaklar
+def resource_path(relative: str) -> Path:
+    """Simge gibi paketlenmiş dosyaların yolu (hem kaynak koddan hem exe'den çalışır)."""
+    base = getattr(sys, "_MEIPASS", None)
+    root = Path(base) if base else Path(__file__).resolve().parent.parent
+    return root / relative

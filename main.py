@@ -1,4 +1,4 @@
-"""Verimlilik Merkezi — giriş noktası.
+"""Task Planner / Pomodoro Timer — giriş noktası.
 
 Çalıştırma:  python main.py
 """
@@ -12,13 +12,19 @@ from app.database import Database
 from app.ui import theme
 from app.ui.main_window import MainWindow
 
-DB_PATH = Path(__file__).resolve().parent / "veriler" / "verimlilik.db"
+# Exe olarak çalışırken veriler, exe'nin yanındaki "veriler" klasöründe tutulur.
+# (Klasör/dosya adı, eski sürümlerden gelen verilerin korunması için bilerek değiştirilmedi.)
+if getattr(sys, "frozen", False):
+    BASE_DIR = Path(sys.executable).resolve().parent
+else:
+    BASE_DIR = Path(__file__).resolve().parent
+DB_PATH = BASE_DIR / "veriler" / "verimlilik.db"
 
 
 def main() -> None:
     if sys.platform.startswith("win"):
         try:  # Görev çubuğunda Python yerine uygulamanın kendi simgesi/grubu
-            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("VerimlilikMerkezi")
+            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("H1potenus.TaskPlannerPomodoroTimer")
         except (AttributeError, OSError):
             pass
 

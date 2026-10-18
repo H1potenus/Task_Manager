@@ -5,3 +5,11 @@ veriler/
 __pycache__/
 *.pyc
 .venv/
+
+# Derleme çıktıları (exe, GitHub Releases ile dağıtılır)
+build/
+dist/
+*.spec
+*.exe
+github_yukle_log.txt
+Github_Senkronla.bat

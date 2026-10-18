@@ -6,14 +6,14 @@ from datetime import date
 import customtkinter as ctk
 
 from ..database import Database
-from ..utils import format_long_date
+from ..utils import format_long_date, resource_path
 from . import theme
 from .settings_window import SettingsWindow
 from .stats_window import StatsWindow
 from .task_panel import TaskPanel
 from .timer_panel import TimerPanel
 
-APP_TITLE = "Verimlilik Merkezi"
+APP_TITLE = "Task Planner / Pomodoro Timer"
 
 
 class MainWindow(ctk.CTk):
@@ -23,6 +23,7 @@ class MainWindow(ctk.CTk):
         self.title(APP_TITLE)
         self.geometry("1200x700")
         self.minsize(960, 600)
+        self._set_icon()
         self._stats_win: StatsWindow | None = None
         self._settings_win: SettingsWindow | None = None
         self._last_title = APP_TITLE
@@ -40,6 +41,21 @@ class MainWindow(ctk.CTk):
 
         self.protocol("WM_DELETE_WINDOW", self._on_close)
         self.after(60_000, self._check_day_change)
+
+    def _set_icon(self) -> None:
+        """Pencere/görev çubuğu simgesi (customtkinter başlangıçta kendi simgesini koyduğu için gecikmeli)."""
+        ico = resource_path("assets/icon.ico")
+        if not ico.exists():
+            return
+
+        def apply() -> None:
+            try:
+                self.iconbitmap(str(ico))
+            except Exception:  # Windows dışı sistemlerde .ico desteklenmeyebilir
+                pass
+
+        apply()
+        self.after(250, apply)
 
     def _build_top_bar(self) -> None:
         bar = ctk.CTkFrame(self, fg_color="transparent")

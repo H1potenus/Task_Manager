@@ -1,9 +1,15 @@
-VERİMLİLİK MERKEZİ — KULLANIM KILAVUZU
-======================================
+TASK PLANNER / POMODORO TIMER — KULLANIM KILAVUZU
+==========================================================
 
-1) KURULUM (yalnızca bir kez)
+0) EXE İLE ÇALIŞTIRMA (en kolayı)
+--------------------------------
+- GitHub'daki Releases sayfasından TaskPlannerPomodoro.exe dosyasını indir,
+  bir klasöre koy ve çift tıkla. Python kurulumu gerekmez.
+- Veriler exe'nin yanındaki "veriler" klasörüne kaydedilir.
+
+1) KAYNAK KODDAN KURULUM (yalnızca bir kez)
 -----------------------------
-- Zip'i C:\ altına çıkar. Sonuç şöyle olmalı:  C:\VerimlilikMerkezi\main.py
+- Zip'i C:\ altına çıkar. Sonuç şöyle olmalı:  C:\TaskPlanner\main.py
   (Kullanıcı klasörüne / Masaüstüne değil, doğrudan C:\ altına koy; Türkçe
   karakterli kullanıcı adı yüzünden yaşadığın sorunları böylece önlersin.)
 - "Kurulum.bat" dosyasına çift tıkla. customtkinter ve matplotlib kurulur.
@@ -12,9 +18,9 @@ VERİMLİLİK MERKEZİ — KULLANIM KILAVUZU
 -------------
 - "Baslat.bat" dosyasına çift tıkla.
 - Ya da komut satırından:
-      cd C:\VerimlilikMerkezi
+      cd C:\TaskPlanner
       python main.py
-- Verilerin  C:\VerimlilikMerkezi\veriler\verimlilik.db  dosyasında tutulur.
+- Verilerin  C:\TaskPlanner\veriler\verimlilik.db  dosyasında tutulur.
   Yedeklemek için bu dosyayı kopyalaman yeterli.
 
 3) GÖREVLER (sol panel)
