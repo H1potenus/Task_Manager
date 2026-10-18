@@ -48,8 +48,13 @@ pip install -r requirements.txt
 python main.py
 ```
 
-Kendi exe'ni derlemek istersen Windows'ta `Exe_Olustur.bat` dosyasını çalıştır
-(PyInstaller kurar, `TaskPlannerPomodoro.exe` üretir ve masaüstüne simgeli kısayol koyar).
+Kendi exe'ni derlemek istersen:
+
+```bash
+pip install pyinstaller
+pyinstaller --onefile --windowed --name TaskPlannerPomodoro --icon assets/icon.ico ^
+  --add-data "assets/icon.ico;assets" --collect-all customtkinter main.py
+```
 
 ## Verilerin nerede?
 
@@ -73,9 +78,6 @@ Ayrıntılı anlatım için [KULLANIM.txt](KULLANIM.txt) dosyasına bak.
 ```
 main.py                  Giriş noktası
 assets/                  Uygulama simgesi (icon.ico, icon.png)
-tools/make_icon.py       Simgeyi üreten betik (Pillow)
-build_exe.ps1            Exe derleme betiği (Exe_Olustur.bat çağırır)
-.github/workflows/       Etiket (v*) gönderilince Windows exe derleyip Release'e ekler
 docs/screenshots/        README görselleri
 app/
   database.py            SQLite katmanı (Categories, Tasks, TimeLogs, Settings)
@@ -91,13 +93,3 @@ app/
     dialogs.py           Türkçe butonlu diyaloglar
     theme.py             Renkler ve yazı tipleri
 ```
-
-## Yeni sürüm yayınlama
-
-```bash
-git tag v1.1.0
-git push origin v1.1.0
-```
-
-GitHub Actions Windows üzerinde exe'yi derler ve Release olarak yayınlar
-(ya da **Actions → Windows exe derle ve yayınla → Run workflow** ile elle başlat).
