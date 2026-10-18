@@ -99,4 +99,5 @@ git tag v1.1.0
 git push origin v1.1.0
 ```
 
-GitHub Actions Windows üzerinde exe'yi derler ve Release olarak yayınlar.
+GitHub Actions Windows üzerinde exe'yi derler ve Release olarak yayınlar
+(ya da **Actions → Windows exe derle ve yayınla → Run workflow** ile elle başlat).

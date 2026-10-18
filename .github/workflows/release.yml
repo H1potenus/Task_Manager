@@ -4,6 +4,11 @@ on:
   push:
     tags: ["v*"]
   workflow_dispatch:
+    inputs:
+      version:
+        description: "Yayınlanacak sürüm etiketi (ör. v1.0.0)"
+        required: true
+        default: "v1.0.0"
 
 permissions:
   contents: write
@@ -37,8 +42,9 @@ jobs:
           path: dist/TaskPlannerPomodoro.exe
 
       - name: Release oluştur
-        if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ github.ref_type == 'tag' && github.ref_name || inputs.version }}
+          name: Task Planner / Pomodoro Timer ${{ github.ref_type == 'tag' && github.ref_name || inputs.version }}
           files: dist/TaskPlannerPomodoro.exe
           generate_release_notes: true
